@@ -10,30 +10,6 @@ Core: Install-Package PhantomTest.NET
 
 NUnit: Install-Package PhantomTest.NET.NUnit
 
-## Usage - NUnit
-
-If you install the PhantomTest.NET.NUnit package you just have to add a test to your test suite:
-
-        [Test]
-        [JavascriptTests("../path/to/testdir/")]
-        public void RunJavascriptTests(JavascriptTest test)
-        {
-            test.Assert();
-        }
-
-All tests will come up seperately in your NUnit test runner (This includes the inbuilt VS Test runner and NCrunch etc).
-Skipped tests (in Mocha) should come up as ignored and failed tests will include the error. I could not work out a
-way to include the duration information (however they exist on the JavascriptTest object). 
-
-## Usage - Command Line
-
-You can run the tests anytime from the command line using the RunTests.bat file installed with the core component.
-
-## Usage - Browser
-
-If you need to debug your tests the best way might be running the tests directly in your browser. All you have to do
-is open the tests.html file in your favourite browser.
-
 ## Why?
 
 I wanted to setup my javascript unit tests to run in my NCrunch test runner but it was a massive pain. My first attempt
@@ -142,6 +118,30 @@ Here is a standard example you might use:
             it 'should do x', ->
                 sinon.stub(_viewModel, item1).returns('something')
                 ...
+
+## Usage - NUnit
+
+If you install the PhantomTest.NET.NUnit package you just have to add a test to your test suite:
+
+        [Test]
+        [JavascriptTests("../path/to/testdir/")]
+        public void RunJavascriptTests(JavascriptTest test)
+        {
+            test.Assert();
+        }
+
+All tests will come up seperately in your NUnit test runner (This includes the inbuilt VS Test runner and NCrunch etc).
+Skipped tests (in Mocha) should come up as ignored and failed tests will include the error. I could not work out a
+way to include the duration information (however they exist on the JavascriptTest object). 
+
+## Usage - Command Line
+
+You can run the tests anytime from the command line using the RunTests.bat file installed with the core component.
+
+## Usage - Browser
+
+If you need to debug your tests the best way might be running the tests directly in your browser. All you have to do
+is open the tests.html file in your favourite browser.
 
 ## How it works
 
