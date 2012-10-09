@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PhantomTest.NET</id>
+    <version>0.0.1.0</version>
+    <authors>Felix Jorkowski (jorkowski.com)</authors>
+    <owners>Felix Jorkowski (jorkowski.com)</owners>
+    <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/ajorkowski/PhantomTest.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Uses PhantomJS to run your mocha/chai/sinon test suite, base package to be used for specific test runners</description>
+    <releaseNotes>First Release - comes with everything you need to get started</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>PhantomJS Mocha Chai Sinon Javascript Unit Test</tags>
+  </metadata>
+</package>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PhantomTest.NET.NUnit</id>
+    <version>0.0.1.0</version>
+    <authors>Felix Jorkowski (jorkowski.com)</authors>
+    <owners>Felix Jorkowski (jorkowski.com)</owners>
+    <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/ajorkowski/PhantomTest.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Uses PhantomJS to run your mocha/chai/sinon test suite, shows results in your NUnit test runner </description>
+    <releaseNotes>First Release - Start writing up javascript tests easily for NUnit</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>NUnit PhantomJS Mocha Chai Sinon Javascript Unit Test</tags>
+    <dependencies>
+      <dependency id="PhantomTest.NET" version="0.0.1.0" />
+      <dependency id="NUnit" version="2.6.1" />
+    </dependencies>
+  </metadata>
+</package>

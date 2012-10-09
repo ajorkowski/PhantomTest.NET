@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{088D4A85-7CB9-4C4D-86C1-AB289E273F60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PhantomTest.NET</RootNamespace>
+    <AssemblyName>PhantomTest.NET</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JavascriptTest.cs" />
+    <Compile Include="TestRunner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="coffee-script.js" />
+    <Content Include="config.js" />
+    <Content Include="cs.js" />
+    <Content Include="dependencies\chai.js" />
+    <Content Include="dependencies\mocha.css" />
+    <Content Include="dependencies\mocha.js" />
+    <Content Include="dependencies\require.js" />
+    <Content Include="dependencies\sinon.js" />
+    <Content Include="dependencies\sinon\assert.js" />
+    <Content Include="dependencies\sinon\collection.js" />
+    <Content Include="dependencies\sinon\match.js" />
+    <Content Include="dependencies\sinon\mock.js" />
+    <Content Include="dependencies\sinon\sandbox.js" />
+    <Content Include="dependencies\sinon\spy.js" />
+    <Content Include="dependencies\sinon\stub.js" />
+    <Content Include="dependencies\sinon\test.js" />
+    <Content Include="dependencies\sinon\test_case.js" />
+    <Content Include="dependencies\sinon\util\event.js" />
+    <Content Include="dependencies\sinon\util\fake_server.js" />
+    <Content Include="dependencies\sinon\util\fake_server_with_clock.js" />
+    <Content Include="dependencies\sinon\util\fake_timers.js" />
+    <Content Include="dependencies\sinon\util\fake_xml_http_request.js" />
+    <Content Include="dependencies\sinon\util\timers_ie.js" />
+    <Content Include="dependencies\sinon\util\xhr_ie.js" />
+    <Content Include="dependencies\underscore.js" />
+    <Content Include="mocha-phantomjs.coffee">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <Bare>False</Bare>
+      <Iced>False</Iced>
+    </Content>
+    <Content Include="runTests.bat" />
+    <None Include="app\dep2.coffee">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <Bare>False</Bare>
+      <Iced>False</Iced>
+    </None>
+    <None Include="app\dep1.coffee">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <Bare>False</Bare>
+      <Iced>False</Iced>
+    </None>
+    <None Include="PhantomTest.NET.nuspec" />
+    <None Include="test\example2.coffee">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <Bare>False</Bare>
+      <Iced>False</Iced>
+    </None>
+    <None Include="test\example1.coffee">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <Bare>False</Bare>
+      <Iced>False</Iced>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mocha-phantomjs\core_extensions.js" />
+    <Content Include="phantomjs.exe" />
+    <Content Include="tests.html" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rmdir "$(ProjectDir)package" /s /q
+mkdir "$(ProjectDir)package\lib\Net40"
+Xcopy.exe /Y "$(TargetPath)" "$(ProjectDir)package\lib\Net40"
+Xcopy.exe /Y "$(ProjectDir)dependencies\*" "$(ProjectDir)package\content\dependencies" /s /i
+Xcopy.exe /Y "$(ProjectDir)app\*" "$(ProjectDir)package\content\app" /s /i
+Xcopy.exe /Y "$(ProjectDir)test\*" "$(ProjectDir)package\content\test" /s /i
+Xcopy.exe /Y "$(ProjectDir)mocha-phantomjs\*" "$(ProjectDir)package\content\mocha-phantomjs" /s /i
+Xcopy.exe /Y "$(ProjectDir)coffee-script.js" "$(ProjectDir)package\content\"
+Xcopy.exe /Y "$(ProjectDir)config.js" "$(ProjectDir)package\content\"
+Xcopy.exe /Y "$(ProjectDir)cs.js" "$(ProjectDir)package\content\"
+Xcopy.exe /Y "$(ProjectDir)mocha-phantomjs.coffee" "$(ProjectDir)package\content\"
+Xcopy.exe /Y "$(ProjectDir)phantomjs.exe" "$(ProjectDir)package\content\"
+Xcopy.exe /Y "$(ProjectDir)runTests.bat" "$(ProjectDir)package\content\"
+Xcopy.exe /Y "$(ProjectDir)tests.html" "$(ProjectDir)package\content\"
+Xcopy.exe /Y "$(ProjectDir)PhantomTest.NET.nuspec" "$(ProjectDir)package"
+cd "$(ProjectDir)package"
+"$(SolutionDir).nuget\Nuget.exe" pack PhantomTest.NET.nuspec
+xcopy /Y *.nupkg "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
