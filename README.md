@@ -21,7 +21,7 @@ to be able to be able to 'inject' dependencies for unit testing purposes.
 
 The testing suite that is setup by default has the following libraries included:
 
-+ [Mocha](http://visionmedia.github.com/mocha/) - We use the browser version
++ [Mocha](http://mochajs.org/) - We use the browser version
 + [Chai](http://chaijs.com/) - The assertion library, we use the 'expect' style by default
 + [Sinon](http://sinonjs.org/) - For all your spying/stubing/mocking needs, also great for mocking out ajax calls
 + [Coffeescript](http://coffeescript.org/) - Supported out of the box, you can stub dependencies written in coffeescript too
